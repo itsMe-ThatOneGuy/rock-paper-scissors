@@ -4,7 +4,6 @@ let computerScore = 0;
 //works
 function computerPlay () {
    let randomNumber = Math.floor(Math.random() * 3);
-   //console.log(randomNumber);
    if (randomNumber == 0) {
        return "rock";
    } else if (randomNumber == 1) {
@@ -15,27 +14,44 @@ function computerPlay () {
 }
 
 //works
-function playRound (playerSelection, computerSelection) {
+function playerChoice () {
+    let sign = prompt("Rock, Paper, Scissors?");
+    if (sign.toLowerCase() == "rock") {
+        return "rock";
+    } else if (sign.toLowerCase() == "paper") {
+        return "paper";
+    } else if (sign.toLowerCase() == "scissors") {
+        return "scissors";
+    }
+}
+
+//works
+function playRound () {
+    const computerSelection = computerPlay();
+    const playerSelection = playerChoice();
+    console.log("Player: " + playerSelection + "  " + "computer: " + computerSelection);
+
     if ((playerSelection === "rock" && computerSelection === "scissors") || 
         (playerSelection === "paper" && computerSelection === "rock") || 
         (playerSelection === "scissors" && computerSelection === "paper")) 
         {
             console.log("You win! " + playerSelection + " beats " + computerSelection);
-            return "player";
+            playerScore++;
     } else if ((playerSelection === "rock" && computerSelection === "paper") ||
         (playerSelection === "paper" && computerSelection === "scissors") || 
         (playerSelection === "scissors" && computerSelection === "rock")) 
         {
             console.log("You lose. " + computerSelection + " beats " + playerSelection);
-            return "computer";
+            computerScore++;
             
     } else {
         console.log("Tie game. No winner")
-        return "tie";
+        return;
     }
 }
 
-//works
+//works -- Not Needeed 
+/*
 function scoreUpdate (winner) {
     if (winner === "player") {
         playerScore++;
@@ -45,7 +61,9 @@ function scoreUpdate (winner) {
         console.log(playerScore + " " + computerScore);
     }
 }
+*/
 
+//works
 function gameOver(playerScore, computerScore) {
     if (playerScore === 5) {
         winnerMessage(playerScore);
@@ -66,12 +84,14 @@ function winnerMessage (playerScore){
     }
 }
 
+//works
+function game (){
+    while (gameOver(playerScore, computerScore) != true) {
+        playRound();
+        console.log(playerScore + " " + computerScore);
+    }
 
-const computerSelection = computerPlay();
-const playerSelection = "rock"
+    winnerMessage(playerScore);
+}
 
-
-console.log("player: " + playerSelection);
-console.log("computer: " + computerSelection);
-
-console.log(gameOver(playerScore, computerScore))
+game();
