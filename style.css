@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    min-width: 300px;
+}
+
+header {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+#game-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 850px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+}
+
+.player-container {
+    border: 1px solid blue;
+    min-width: 250px;
+    margin: 0 15px;
+    margin-bottom: 30px;
+    padding: 10px 3vw;
+}
+
+.player-container > h2 {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.player-choices {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 15px;
+}
+
+.score-container {
+    text-align: center;
+}
+
+#round-result {
+    margin-top: 25px;
+    padding: 15px;
+}
+
+li {
+    list-style: none;
+    line-height: 2em;
+}
